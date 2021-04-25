@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-04-15 23:30:24
+ * @LastEditTime: 2021-04-24 09:36:25
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Admin\Controllers\RepairController.php
+ */
 
 namespace App\Admin\Controllers;
 
@@ -15,7 +23,7 @@ class RepairController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Repair';
+    protected $title = '报修记录';
 
     /**
      * Make a grid builder.

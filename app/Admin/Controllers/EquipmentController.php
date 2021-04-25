@@ -2,8 +2,8 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 23:29:40
- * @LastEditTime: 2021-04-16 09:53:54
- * @LastEditors: your name
+ * @LastEditTime: 2021-04-24 09:36:37
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Admin\Controllers\EquipmentController.php
  */
@@ -23,7 +23,7 @@ class EquipmentController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Equipment';
+    protected $title = '设备';
 
     /**
      * Make a grid builder.

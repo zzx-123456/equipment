@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-04-15 23:30:04
+ * @LastEditTime: 2021-04-24 09:36:51
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Admin\Controllers\OrderController.php
+ */
 
 namespace App\Admin\Controllers;
 
@@ -15,7 +23,7 @@ class OrderController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Order';
+    protected $title = '预约记录';
 
     /**
      * Make a grid builder.
