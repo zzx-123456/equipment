@@ -17,5 +17,5 @@ class Order extends Model
     //关联数据表
     protected $table = 'order';
     // 禁用时间字段
-    public $timestamps = 'false';
+    public $timestamps = false;
 }

@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 23:11:42
- * @LastEditTime: 2021-04-15 23:26:22
+ * @LastEditTime: 2021-04-26 13:07:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Home\User.php
@@ -10,14 +10,16 @@
 
 namespace App\Home;
 
-use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable implements JWTSubject
 {
     //关联数据表
     protected $table = 'user';
     // 禁用时间字段
-    public $timestamps = 'false';
+    public $timestamps = false;
 
 
     // 关联预约模型，一对多
@@ -30,6 +32,26 @@ class User extends Model
         return $this -> hasMany('App\Home\Repair','user_id','id');
     }
 
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }
 
 

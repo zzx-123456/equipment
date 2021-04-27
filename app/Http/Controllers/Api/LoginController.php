@@ -1,73 +1,54 @@
 <?php
-/*
- * @Author: your name
- * @Date: 2021-04-24 10:50:41
- * @LastEditTime: 2021-04-25 10:25:46
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Http\Controllers\api\LoginController.php
- */
+
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
+use App\Http\Requests\LoginRequest;
 
-class LoginController extends Controller
+class LoginController extends BaseController
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * 用户登录
      */
-    public function index()
+    public function login(LoginRequest $request)
     {
-        //
-        return response([1,2,3]);
+        $credentials = request(['user_name', 'password']);
+
+        if (!$token = auth('api')->attempt($credentials)) {
+            return $this->response->errorUnauthorized();
+        }
+
+        return $this->respondWithToken($token);
+    }
+    
+    /**
+     * 退出登录
+     */
+    public function logout()
+    {
+        auth('api')->logout();
+
+        return $this->response->noContent();
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * 刷新token
      */
-    public function store(Request $request)
+    public function refresh()
     {
-        //
+        return $this->respondWithToken(auth('api')->refresh());
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 格式化返回
      */
-    public function show($id)
+    protected function respondWithToken($token)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'expires_in' => auth('api')->factory()->getTTL() * 60
+        ]);
     }
 }
