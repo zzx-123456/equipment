@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 21:45:15
- * @LastEditTime: 2021-05-03 11:05:07
+ * @LastEditTime: 2021-05-03 11:28:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\database\migrations\2021_04_15_214515_creare_order_table.php
@@ -24,11 +24,12 @@ class CreareOrderTable extends Migration
         //建表
         Schema::create('order',function(Blueprint $table){
             $table -> increments('id');
-            $table -> integer('eqm_id',10) -> notNull() -> comment('设备ID');
+            $table -> integer('eqm_id') -> notNull() -> comment('设备ID');
             $table -> string('eqm_name',50) -> notNull() -> comment('设备名称');
             $table -> date('date') -> notNull() -> comment('预约日期');
-            $table -> tinyInteger('time',10) -> notNull() -> comment('预约时刻 上午：0 下午：1');
-            $table -> integer('user_id',10) -> notNull() -> comment('使用者ID');
+            $table -> tinyInteger('time') -> notNull() -> comment('预约时刻 上午：0 下午：1');
+            $table -> integer('user_id') -> notNull() -> comment('使用者ID');
+            $table -> timestamps();
         });
     }
 

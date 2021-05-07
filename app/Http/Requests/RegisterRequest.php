@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-26 10:11:29
- * @LastEditTime: 2021-04-26 18:59:15
+ * @LastEditTime: 2021-05-03 15:08:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Http\Requests\RegisterRequest.php
@@ -21,7 +21,7 @@ class RegisterRequest extends BaseRequest
         return [
             //验证规则
             'user_name' => 'required|unique:user|min:4|max:16',
-            'name' => 'required|max:16',
+            'nickname' => 'required|max:16',
             'password' => 'required|min:6|max:16|confirmed'
         ];
     }

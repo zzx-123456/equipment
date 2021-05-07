@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 21:44:17
- * @LastEditTime: 2021-05-03 11:01:25
+ * @LastEditTime: 2021-05-03 11:26:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\database\migrations\2021_04_15_214417_creare_user_table.php
@@ -28,7 +28,7 @@ class CreareUserTable extends Migration
             $table -> string('nickname',255) -> notNull() -> comment('昵称');
             $table -> string('password',255) -> notNull() -> comment('密码');
             $table -> string('avatar',255) -> comment('头像');
-            $table -> tinyInteger('sex',10) -> comment('性别 男：0 女：1');
+            $table -> tinyInteger('sex') -> comment('性别 男：0 女：1');
             $table -> string('phone',11) -> comment('手机');
             $table -> timestamps();
         });

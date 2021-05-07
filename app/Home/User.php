@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 23:11:42
- * @LastEditTime: 2021-04-26 13:07:42
+ * @LastEditTime: 2021-05-03 15:09:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Home\User.php
@@ -18,8 +18,6 @@ class User extends Authenticatable implements JWTSubject
 {
     //关联数据表
     protected $table = 'user';
-    // 禁用时间字段
-    public $timestamps = false;
 
 
     // 关联预约模型，一对多
