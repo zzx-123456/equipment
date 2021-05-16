@@ -9,7 +9,7 @@
     "Eqm name":"设备名称",
     "Eqm type":"设备类型",
     "Eqm state":"设备状态",
-    "Eqm num":"设备数量",
+    "Eqm num":"设备编号",
     "Place":"设备存放位置",
     "Photo":"设备照片",
     "Describe":"设备描述",
@@ -17,11 +17,15 @@
     "Order num":"预约数量",
     "Begin time":"预约开始时间",
     "End time":"预约结束时间",
-    "User id":"用户ID",
+    "User id":"使用者ID",
     "Fault":"故障问题",
     "Submit time":"提交时间",
     "Repair state":"维修状态",
     "Repair man":"维修人",
     "Repair time":"维修时间",
-    "Name":"名称"
+    "Nickname":"昵称",
+    "Created at":"添加时间",
+    "Updated at":"更新时间",
+    "Date":"预约使用日期",
+    "Time":"预约使用时间"
 }

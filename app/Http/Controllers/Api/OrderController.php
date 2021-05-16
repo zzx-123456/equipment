@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-05-05 14:35:59
+ * @LastEditTime: 2021-05-10 14:47:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Http\Controllers\Api\OrderController.php
+ */
 
 namespace App\Http\Controllers\Api;
 
@@ -33,5 +41,28 @@ class OrderController extends BaseController
         $order -> user_id = $request -> input('user_id');
         $order -> save();
         return $this->response()->created();
+    }
+
+    // 查看用户预约记录
+    public function orderRecord(Request $request)
+    {
+        $user_id = $request->input('user_id');
+
+        $records = Order::when($user_id,function($query) use ($user_id){
+            $query->where('user_id',"$user_id");
+            })
+            ->paginate(5);
+
+        return $this->response->paginator($records,new OrderTransformer());
+    }
+
+    // 取消预约
+    public function cancel(Request $request)
+    {
+        $id = $request->input('id');
+
+        Order::where('id',"$id")->delete();
+
+        return $this->response->noContent();
     }
 }

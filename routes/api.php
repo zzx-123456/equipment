@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-25 16:22:17
- * @LastEditTime: 2021-05-05 16:36:31
+ * @LastEditTime: 2021-05-10 14:48:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\routes\api.php
@@ -52,6 +52,15 @@ $api->version('v1',$params, function ($api) {
 
         // 新增预约
         $api->put('addOrder','App\Http\Controllers\Api\OrderController@addOrder');
+
+        // 预约记录
+        $api->get('record','App\Http\Controllers\Api\OrderController@orderRecord');
+
+        // 取消预约
+        $api->delete('cancel','App\Http\Controllers\Api\OrderController@cancel');
+
+        // 设备报修
+        $api->put('addRepair','App\Http\Controllers\Api\RepairController@repair');
 
     });
 });

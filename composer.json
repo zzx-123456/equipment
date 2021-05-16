@@ -12,11 +12,15 @@
         "dingo/api": "^2.2",
         "encore/laravel-admin": "1.*",
         "fideloper/proxy": "^4.0",
+        "hhxsv5/laravel-s": "~3.7.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "liyu/dingo-serializer-switch": "^0.3.2",
         "overtrue/laravel-lang": "~3.0",
-        "tymon/jwt-auth": "^1.0"
+        "pusher/pusher-php-server": "~3.0",
+        "swooletw/laravel-swoole": "^2.8",
+        "tymon/jwt-auth": "^1.0",
+        "workerman/gateway-worker": "^3.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -29,7 +33,11 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-pcntl": "7.2",
+            "ext-posix": "7.2"
+        }
     },
     "extra": {
         "laravel": {

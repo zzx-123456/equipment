@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-04-10 22:55:10
+ * @LastEditTime: 2021-05-12 12:41:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \testd:\phpstudy_pro\WWW\equipment\config\broadcasting.php
+ */
 
 return [
 
@@ -37,7 +45,7 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => true,
+                'useTLS' => false,
             ],
         ],
 

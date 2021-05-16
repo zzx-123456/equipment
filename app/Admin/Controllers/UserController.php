@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 23:29:03
- * @LastEditTime: 2021-04-24 09:36:11
+ * @LastEditTime: 2021-05-14 10:27:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Admin\Controllers\UserController.php
@@ -36,12 +36,13 @@ class UserController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('user_name', __('User name'));
-        $grid->column('name', __('Name'));
-        $grid->column('password', __('Password'));
+        $grid->column('nickname', __('Nickname'));
+        // $grid->column('password', __('Password'));
         $grid->column('avatar', __('Avatar'));
-        $grid->column('sex', __('Sex'));
+        $grid->column('sex', __('Sex'))->using(['1' => '女', '0' => '男']);
         $grid->column('phone', __('Phone'));
-        $grid->column('reg_time', __('Reg time'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -58,12 +59,13 @@ class UserController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('user_name', __('User name'));
-        $show->field('name', __('Name'));
-        $show->field('password', __('Password'));
+        $show->field('nickname', __('Nickname'));
+        // $show->field('password', __('Password'));
         $show->field('avatar', __('Avatar'));
-        $show->field('sex', __('Sex'));
+        $show->field('sex', __('Sex'))->using(['1' => '女', '0' => '男']);
         $show->field('phone', __('Phone'));
-        $show->field('reg_time', __('Reg time'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -78,7 +80,7 @@ class UserController extends AdminController
         $form = new Form(new User());
 
         $form->text('user_name', __('User name'));
-        $form->text('name', __('Name'));
+        $form->text('nickname', __('Nickname'));
         $form->password('password', __('Password'));
         $form->saving(function (Form $form) {
             if ($form->password && $form->model()->password != $form->password) {
@@ -86,9 +88,11 @@ class UserController extends AdminController
             }
         });
         $form->image('avatar', __('Avatar'));
-        $form->text('sex', __('Sex'));
+        $form->radioButton('sex', __('Sex'))->options([
+            '0' => '男',
+            '1' => '女',
+            ]);
         $form->mobile('phone', __('Phone'));
-        $form->datetime('reg_time', __('Reg time'))->default(date('Y-m-d H:i:s'));
 
         return $form;
     }

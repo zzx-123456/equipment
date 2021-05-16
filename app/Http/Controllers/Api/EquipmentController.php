@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-03 14:48:31
- * @LastEditTime: 2021-05-04 10:08:46
+ * @LastEditTime: 2021-05-16 15:46:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Http\Controllers\Api\EquipmentController.php
@@ -24,7 +24,10 @@ class EquipmentController extends BaseController
     {
         $eqm_name = $request->input('eqm_name');
 
-        $equipments = Equipment::when($eqm_name,function($query) use ($eqm_name){
+        // 查找状态正常的设备
+        $usable = Equipment::where('eqm_state','0');
+
+        $equipments = $usable->when($eqm_name,function($query) use ($eqm_name){
             $query->where('eqm_name','like',"%$eqm_name%");
             })
             ->paginate(5);

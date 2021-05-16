@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-04-10 22:55:10
+ * @LastEditTime: 2021-05-15 23:25:44
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \testd:\phpstudy_pro\WWW\equipment\routes\web.php
+ */
 
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +19,22 @@
 |
 */
 
+use App\Events\TestEvent;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+Route::get('/state', function () {
+    return view('state');
+});
+
+
+Route::get('/event', function () {
+    event(new TestEvent('hello world'));
+    dd('done');
 });
