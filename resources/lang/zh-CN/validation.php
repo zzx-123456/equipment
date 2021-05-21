@@ -175,5 +175,10 @@ return [
         'time'                  => '时间',
         'available'             => '可用的',
         'size'                  => '大小',
+        'user_name'             => '用户名',
+        'nickname'              => '昵称',
+        'eqm_id'                => '设备ID',
+        'eqm_name'              => '设备名称',
+        'fault'                 => '故障描述',
     ],
 ];

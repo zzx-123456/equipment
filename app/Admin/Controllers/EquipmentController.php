@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 23:29:40
- * @LastEditTime: 2021-05-14 10:55:11
+ * @LastEditTime: 2021-05-20 20:11:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Admin\Controllers\EquipmentController.php
@@ -42,6 +42,12 @@ class EquipmentController extends AdminController
         $grid->column('place', __('Place'));
         $grid->column('photo', __('Photo'))->image(100,100);
         $grid->column('describe', __('Describe'));
+        $grid->filter(function($filter){
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+            // 在这里添加字段过滤器
+            $filter->like('eqm_name', '设备名称');
+        });
 
         return $grid;
     }

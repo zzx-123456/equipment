@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 23:29:03
- * @LastEditTime: 2021-05-14 10:27:28
+ * @LastEditTime: 2021-05-20 19:54:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Admin\Controllers\UserController.php
@@ -38,11 +38,18 @@ class UserController extends AdminController
         $grid->column('user_name', __('User name'));
         $grid->column('nickname', __('Nickname'));
         // $grid->column('password', __('Password'));
-        $grid->column('avatar', __('Avatar'));
+        $grid->column('avatar', __('Avatar'))->image(60, 60);
         $grid->column('sex', __('Sex'))->using(['1' => '女', '0' => '男']);
         $grid->column('phone', __('Phone'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        // 去掉默认的id过滤器
+        $grid->filter(function($filter){
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+            // 在这里添加字段过滤器
+            $filter->like('nickname', '昵称');
+        });
 
         return $grid;
     }
@@ -61,7 +68,7 @@ class UserController extends AdminController
         $show->field('user_name', __('User name'));
         $show->field('nickname', __('Nickname'));
         // $show->field('password', __('Password'));
-        $show->field('avatar', __('Avatar'));
+        $show->field('avatar', __('Avatar'))->image();
         $show->field('sex', __('Sex'))->using(['1' => '女', '0' => '男']);
         $show->field('phone', __('Phone'));
         $show->field('created_at', __('Created at'));

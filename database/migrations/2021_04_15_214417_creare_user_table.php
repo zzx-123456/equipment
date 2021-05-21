@@ -2,8 +2,8 @@
 /*
  * @Author: your name
  * @Date: 2021-04-15 21:44:17
- * @LastEditTime: 2021-05-03 11:26:07
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-20 19:37:36
+ * @LastEditors: your name
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\database\migrations\2021_04_15_214417_creare_user_table.php
  */
@@ -14,11 +14,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreareUserTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         //建表

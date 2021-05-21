@@ -1,12 +1,4 @@
 <?php
-/*
- * @Author: your name
- * @Date: 2021-04-25 16:22:17
- * @LastEditTime: 2021-05-10 14:48:40
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \testd:\phpstudy_pro\WWW\equipment\routes\api.php
- */
 
 $api = app('Dingo\Api\Routing\Router');
 

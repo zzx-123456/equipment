@@ -1,12 +1,5 @@
 <?php
-/*
- * @Author: your name
- * @Date: 2021-05-12 19:41:59
- * @LastEditTime: 2021-05-15 15:36:49
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Console\Commands\WorkermanCommand.php
- */
+
 namespace App\Console\Commands;
 use GatewayWorker\BusinessWorker;
 use GatewayWorker\Gateway;
@@ -95,8 +88,9 @@ class WorkermanCommand extends Command
         //         // 'allow_self_signed' => true, //如果是自签名证书需要开启此选项
         //     )
         // );
-        //gateway进程
         // $gateway = new Gateway("websocket://0.0.0.0:2346", $context);
+
+        //gateway进程，建立websocket服务，端口为2346
         $gateway = new Gateway("websocket://0.0.0.0:2346");
         //gateway名称 status方便查看
         $gateway->name                 = 'Gateway';
