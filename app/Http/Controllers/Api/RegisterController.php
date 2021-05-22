@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-26 09:37:47
- * @LastEditTime: 2021-05-03 15:08:52
+ * @LastEditTime: 2021-05-22 13:48:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Http\Controllers\Api\RegisterController.php

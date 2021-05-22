@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-04-25 16:22:17
+ * @LastEditTime: 2021-05-22 14:32:04
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \testd:\phpstudy_pro\WWW\equipment\app\Http\Controllers\Api\LoginController.php
+ */
 
 
 namespace App\Http\Controllers\Api;
@@ -13,12 +21,12 @@ class LoginController extends BaseController
      */
     public function login(LoginRequest $request)
     {
+        // 获取用户输入的账号密码
         $credentials = request(['user_name', 'password']);
-
+        // 验证账号密码，若认证未通过返回错误信息，认证通过返回token令牌
         if (!$token = auth('api')->attempt($credentials)) {
             return $this->response->errorUnauthorized();
         }
-
         return $this->respondWithToken($token);
     }
     

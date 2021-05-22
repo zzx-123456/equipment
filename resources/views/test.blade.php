@@ -15,14 +15,18 @@
     </style>
 </head>
 <body>
-    <input type="text" placeholder="请输入"/>
+    <input type="text" class="example1" placeholder="请输入"/>
+    <input type="text" class="example2" placeholder="请输入"/>
     <button>发送请求</button>
-    <div></div>
+    <div class="example1"></div>
+    <div class="example2"></div>
 
     <script>
-        var input = document.querySelector('input')
+        var input = document.querySelector("input.example1")
+        var i = document.querySelector("input.example2")
         var button = document.querySelector('button')
-        var div = document.querySelector('div')
+        var div = document.querySelector('div.example1')
+        var d = document.querySelector('div.example2')
 
         // 创建一个新的Websocket连接
         var websocket = new WebSocket('ws://127.0.0.1:2346')
@@ -39,18 +43,31 @@
         // 监听服务端发送的消息
         websocket.addEventListener('message',function(e) {
             // var a = JSON.parse(e.data)
-            console.log(e.data) //调试器打印服务器发来的消息
-            div.innerHTML = e.data //在div方框里展示服务器发来的消息
+            console.log(e) //调试器打印服务器发来的消息
+            var arr = e.data;
+            var newArr = arr.slice(1);
+            console.log(newArr);
+            // console.log(e.data) //调试器打印服务器发来的消息
+            if (e.data[0]==1) {
+                div.innerHTML = newArr //在div方框里展示服务器发来的消息
+            }else if(e.data[0]==2){
+                d.innerHTML = newArr //在div方框里展示服务器发来的消息
+            }
+            
         })
         // 监听服务器断开事件
         websocket.addEventListener('close',function() {
-            div.innerHTML = '服务断开了' //在div方框里提示连接成功
+            div.innerHTML = '服务断开了' //在div方框里提示断开服务
         })
 
         input.addEventListener('input',function() {
-                    var value = input.value
-                    websocket.send(value)
-                })
+            var value =['1'+input.value] 
+            websocket.send(value)
+        })
+        i.addEventListener('input',function() {
+            var value = ['2'+i.value] 
+            websocket.send(value)
+        })
     </script>
 </body>
 </html>
